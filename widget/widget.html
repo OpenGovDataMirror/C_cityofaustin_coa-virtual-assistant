@@ -1,0 +1,135 @@
+<!--chatbot script with disclaimer-->
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "e072d9e7-7d3c-460a-a891-7ca86125e73d",
+    region: "us-south",
+    // OVERRIDE the Covid project strings.
+    covidStrings: {
+      greeting: "Hello, I&apos;m",
+      watson_assistant: "City of Austin Bot",
+      disclaimer_title: "Disclaimer",
+      disclaimer_body: "This tool is intended to provide information based on currently available CDC and other public information to help you make decisions about seeking appropriate medical care. This system is not intended for the diagnosis or treatment of disease or other conditions, including COVID&ndash;19, and you should not provide any personally identifying or private health information.",
+      disclaimer_accept: "I accept",
+      disclaimer_no_accept: "I do not accept",
+       // Only used for "large" or "reveal" launchers.
+      launcher_title: "Coronavirus questions?",
+      // Only used for "large" or "reveal" launchers.
+      launcher_body: "Chat with <b>our virtual assistant</b>",
+      launcher_alt_text:
+        "The City of Austin Bot can help you learn move about COVID-19",
+        header: "City of Austin Bot",
+    },
+    // You can choose a 'small', 'large' or a 'reveal' launcher. On a phone sized device we will always show the 'small' launcher.
+    // The 'reveal' launcher introduces itself in 'large' mode, and then animates down to 'small' mode after a period of time. Defaults to 'small', but 'reveal' and 'large' are recommended.
+    covidLauncherVersion: 'reveal',
+    // OVERRIDE THE Z-INDEX OF THE LAUNCHER if it is underneath things or above things it shouldn't be.
+    covidLauncherZIndex: 99999,
+    onLoad: function (instance) {
+      instance.render();
+    },
+  };
+  setTimeout(function(){const t=document.createElement('script');t.src='https://web-chat.global.assistant.watson.appdomain.cloud/covid/webchat.js';document.head.appendChild(t);});
+</script>
+
+
+<!--chatbot script without disclaimer...this chatbot includes css with ibm header removed.
+
+<style type="text/css">@keyframes slideInRight {
+      from {
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+      }
+
+      to {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    button.chatLauncher {
+        box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6),
+            0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        animation-duration: 0.5s;
+        transition-duration: 0.5s;
+        position: fixed;
+        height: auto;
+        bottom: 32px;
+        right: 32px;
+        z-index: 9999;
+        border: 4px solid #1c3583;
+        padding: 4px;
+        border-radius: 8px;
+        margin: 0;
+        text-decoration: none;
+        background: #1c3583;
+        color: white;
+        line-height: 1.4;
+        font-size: 19px;
+        cursor: pointer;
+        text-align: center;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: auto;
+        padding: 10px;
+        opacity: 0.5;
+    }
+
+    button.chatLauncher.open {
+      animation-name: slideInRight;
+      opacity: 1;
+    }
+
+    button.chatLauncher:hover,
+    button.chatLauncher:focus {
+        opacity: 0.9;
+        border: 4px solid #1c3583;
+        color: white;
+    }
+
+    button.chatLauncher:focus {
+        outline: 1px solid #0053ba;
+        outline-offset: -4px;
+    }
+
+
+
+
+// the div style will hide IBM language
+  div.Watson-Assistant-Citizen--hero_animated_step.Watson-Assistant-Citizen--hero_icon_holder{
+      visibility: hidden;
+      }
+
+      div.Watson-Assistant-Citizen--hero.Watson-Assistant-Citizen--hero{
+        display: none;
+        visibility: hidden;
+        }
+
+    div.Watson-Assistant-Citizen--disclaimer-icon{
+      display: none;
+      visibility: hidden;
+      }
+
+</style>
+
+<img class="WAC__header-avatar" style="display: none;"src="https://web-chat.global.assistant.watson.appdomain.cloud/covid/watson_static.png" alt="Austin COVID Bot avatar image">
+<div><button class="chatLauncher" style="display:none;" type="button"><strong>COVID-19</strong><br />
+Questions?</button></div>
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: 'adcbbf1e-5683-4c6e-8338-5a04aa3bd677', // The ID of this integration.
+    region: 'us-south', // The region your integration is hosted in.
+    showLauncher: false,
+
+    onLoad: function (instance) {
+      const button = document.querySelector('.chatLauncher');
+      button.addEventListener('click', () => {
+        instance.openWindow();
+      });
+      instance.render().then(() => {
+        button.style.display = 'block';
+        button.classList.add('open');
+      });
+    },
+  };
+  setTimeout(function(){const t=document.createElement('script');t.src='https://web-chat.global.assistant.watson.appdomain.cloud/covid/webchat.js';document.head.appendChild(t);});
+</script>
+----->
